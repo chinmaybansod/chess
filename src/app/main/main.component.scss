@@ -1,0 +1,20 @@
+td#chessBoard {
+  width: 4vw;
+  height: 4vw;
+}
+
+td.grey {
+  background: lighten($color: grey, $amount: 35);
+}
+
+.piece {
+ cursor: grab;
+}
+
+.margin-left-5 {
+  margin-left: 5px !important;
+}
+
+.margin-right-5 {
+  margin-right: 5px !important;
+}

@@ -1,0 +1,25 @@
+<h2 class="d-flex justify-content-center py-2">Chess</h2>
+
+<div class="d-flex justify-content-center">
+  <table cdkDropListGroup>
+    <td class="text-center" *ngFor="let r of [1,2,3,4,5,6,7,8,9]; let i = index">
+      <small *ngIf="i > 0" class="text-muted">{{ aplhabets[i-1] | uppercase }}</small>
+    </td>
+    <tr *ngFor="let r of [0,1,2,3,4,5,6,7]; let i = index">
+      <td> <small class="text-muted margin-right-5">{{ i+1 }}</small></td>
+      <td id="chessBoard" class="border border-dark border-1 text-center display-5" *ngFor="let c of [0,1,2,3,4,5,6,7]"
+          [class.grey]="(r % 2 + c % 2) === 1"
+          cdkDropList (cdkDropListDropped)="move($event)"
+          [cdkDropListData]="{row: r, col: c}"
+      >
+      <div class="piece" cdkDrag [cdkDragData]="{row: r, col: c}">
+        {{displayPiece(r,c)}}
+      </div>
+      </td>
+      <td> <small class="text-muted margin-left-5">{{ i+1 }}</small></td>
+    </tr>
+    <td class="text-center" *ngFor="let r of [1,2,3,4,5,6,7,8,9]; let i = index">
+      <small *ngIf="i > 0" class="text-muted">{{ aplhabets[i-1] | uppercase }}</small>
+    </td>
+  </table>
+</div>
